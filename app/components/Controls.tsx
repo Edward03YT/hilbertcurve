@@ -11,6 +11,11 @@ interface ControlsProps {
   setBackgroundColor: (color: string) => void;
   showPoints: boolean;
   setShowPoints: (show: boolean) => void;
+
+  // ⚙️ prop‑uri suplimentare pentru modul 3D
+  is3D?: boolean;
+  lineWidth?: number;
+  setLineWidth?: (w: number) => void;
 }
 
 export default function Controls({
@@ -21,27 +26,30 @@ export default function Controls({
   backgroundColor,
   setBackgroundColor,
   showPoints,
-  setShowPoints
+  setShowPoints,
+  is3D = false,
+  lineWidth = 1,
+  setLineWidth,
 }: ControlsProps) {
   const presetColors = [
-    '#3B82F6', // Blue
-    '#10B981', // Green
-    '#F59E0B', // Yellow
-    '#EF4444', // Red
-    '#8B5CF6', // Purple
-    '#EC4899', // Pink
-    '#14B8A6', // Teal
-    '#F97316', // Orange
+    '#3B82F6',
+    '#10B981',
+    '#F59E0B',
+    '#EF4444',
+    '#8B5CF6',
+    '#EC4899',
+    '#14B8A6',
+    '#F97316',
   ];
 
   return (
     <div className="bg-gray-800 p-6 rounded-lg shadow-xl space-y-6">
-      <h2 className="text-xl font-bold text-white mb-4">Controale Fractal</h2>
-      
-      {/* Order Control */}
+      <h2 className="text-xl font-bold text-white mb-4">Controale Fractal</h2>
+
+      {/* Ordinul curbei */}
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">
-          Ordinul Curbei: {order}
+          Ordinul Curbei: {order}
         </label>
         <input
           type="range"
@@ -49,7 +57,7 @@ export default function Controls({
           max="7"
           value={order}
           onChange={(e) => setOrder(parseInt(e.target.value))}
-          className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+          className="w-full h-2 bg-gray-700 rounded-lg cursor-pointer"
         />
         <div className="flex justify-between text-xs text-gray-400 mt-1">
           <span>1</span>
@@ -58,10 +66,32 @@ export default function Controls({
         </div>
       </div>
 
-      {/* Stroke Color */}
+      {/* Grosime Linie (vizibil doar în modul 3D) */}
+      {is3D && setLineWidth && (
+        <div>
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            Grosime Linie: {lineWidth.toFixed(1)}
+          </label>
+          <input
+            type="range"
+            min="0.5"
+            max="5"
+            step="0.1"
+            value={lineWidth}
+            onChange={(e) => setLineWidth(Number(e.target.value))}
+            className="w-full h-2 bg-gray-700 rounded-lg cursor-pointer accent-blue-500"
+          />
+          <div className="flex justify-between text-xs text-gray-400 mt-1">
+            <span>Subțire</span>
+            <span>Gros</span>
+          </div>
+        </div>
+      )}
+
+      {/* Culoarea liniei */}
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">
-          Culoare Linie
+          Culoare Linie
         </label>
         <div className="flex items-center space-x-2">
           <input
@@ -70,7 +100,7 @@ export default function Controls({
             onChange={(e) => setStrokeColor(e.target.value)}
             className="h-10 w-20 rounded cursor-pointer"
           />
-          <div className="flex space-x-1">
+          <div className="flex space-x-1 flex-wrap">
             {presetColors.map((color) => (
               <button
                 key={color}
@@ -83,10 +113,10 @@ export default function Controls({
         </div>
       </div>
 
-      {/* Background Color */}
+      {/* Fundal */}
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">
-          Culoare Fundal
+          Culoare Fundal
         </label>
         <div className="flex items-center space-x-2">
           <input
@@ -118,32 +148,32 @@ export default function Controls({
         </div>
       </div>
 
-      {/* Show Points */}
-      <div>
+      {/* Afișează punctele – doar pentru 2D */}
+      {!is3D && (
         <label className="flex items-center space-x-2 text-gray-300 cursor-pointer">
           <input
             type="checkbox"
             checked={showPoints}
             onChange={(e) => setShowPoints(e.target.checked)}
-            className="w-4 h-4 text-blue-600 bg-gray-700 rounded focus:ring-blue-500"
+            className="w-4 h-4 text-blue-600 bg-gray-700 rounded"
           />
-          <span className="text-sm">Afișează punctele</span>
+          <span className="text-sm">Afișează punctele</span>
         </label>
-      </div>
+      )}
 
-      {/* Info Section */}
+      {/* Info */}
       <div className="bg-gray-700 p-4 rounded-lg">
         <h3 className="text-sm font-semibold text-gray-300 mb-2">Informații</h3>
         <div className="space-y-1 text-xs text-gray-400">
-          <p>• Segmente: {Math.pow(4, order) - 1}</p>
-          <p>• Puncte: {Math.pow(4, order)}</p>
-          <p>• Dimensiune grilă: {Math.pow(2, order)} × {Math.pow(2, order)}</p>
+          <p>• Segmente: {Math.pow(4, order) - 1}</p>
+          <p>• Puncte: {Math.pow(4, order)}</p>
+          <p>• Dimensiune grilă: {Math.pow(2, order)} × {Math.pow(2, order)}</p>
         </div>
       </div>
 
-      {/* Presets */}
+      {/* Presetări rapide */}
       <div>
-        <h3 className="text-sm font-semibold text-gray-300 mb-2">Presetări Rapide</h3>
+        <h3 className="text-sm font-semibold text-gray-300 mb-2">Presetări Rapide</h3>
         <div className="grid grid-cols-2 gap-2">
           <button
             onClick={() => {
