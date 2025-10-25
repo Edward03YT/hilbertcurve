@@ -20,20 +20,21 @@ export default function GeneratePage() {
 
       {/* conținut derulabil */}
       <div className="grow overflow-y-auto">
-        <div className="max-w-7xl mx-auto px-4 py-12">
+        {/*  ✅ spațiu sub navbar */}
+        <div className="max-w-7xl mx-auto px-4 pt-32 pb-12 md:pt-36">
           {/* Titlu */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">
-              Generator Curba Hilbert
+          <div className="text-center mb-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-400 mb-3 drop-shadow-lg">
+              Generator Curba Hilbert
             </h1>
-            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
-              Experimentează ordine, culori, animații și chiar vizualizări 3D ale fractalului Hilbert.
-              Poți ajusta parametrii geometrici și culorile pentru a înțelege vizual procesul recursiv al curbei Hilbert.
+            <p className="text-gray-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+              Experimentează ordine, culori, animații și chiar vizualizări 3D ale fractalului Hilbert.  
+              Poți ajusta parametrii geometrici și culorile pentru a înțelege vizual procesul recursiv al curbei Hilbert.
             </p>
           </div>
 
           {/* Comutator 2D / 3D */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-10">
             <label className="flex items-center gap-2 text-sm text-gray-300 cursor-pointer select-none">
               <input
                 type="checkbox"
@@ -68,7 +69,7 @@ export default function GeneratePage() {
             </div>
 
             {/* Panou de control */}
-            <div className="lg:col-span-1 sticky top-28 self-start">
+            <div className="lg:col-span-1 sticky top-32 self-start">
               <Controls
                 order={order}
                 setOrder={setOrder}

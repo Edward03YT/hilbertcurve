@@ -66,28 +66,6 @@ export default function Controls({
         </div>
       </div>
 
-      {/* Grosime Linie (vizibil doar în modul 3D) */}
-      {is3D && setLineWidth && (
-        <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
-            Grosime Linie: {lineWidth.toFixed(1)}
-          </label>
-          <input
-            type="range"
-            min="0.5"
-            max="5"
-            step="0.1"
-            value={lineWidth}
-            onChange={(e) => setLineWidth(Number(e.target.value))}
-            className="w-full h-2 bg-gray-700 rounded-lg cursor-pointer accent-blue-500"
-          />
-          <div className="flex justify-between text-xs text-gray-400 mt-1">
-            <span>Subțire</span>
-            <span>Gros</span>
-          </div>
-        </div>
-      )}
-
       {/* Culoarea liniei */}
       <div>
         <label className="block text-sm font-medium text-gray-300 mb-2">

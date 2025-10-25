@@ -16,7 +16,6 @@ interface HilbertCanvas3DProps {
 function HilbertLine({
   points,
   strokeColor = '#3B82F6',
-  lineWidth = 1, // 👈 nou
 }: {
   points: Point[];
   strokeColor?: string;
@@ -40,11 +39,10 @@ function HilbertLine({
 
     const material = new THREE.LineBasicMaterial({
       color: new THREE.Color(strokeColor),
-      linewidth: lineWidth, // 👈 acum există
     });
 
     return new THREE.Line(geometry, material);
-  }, [points, strokeColor, lineWidth]);
+  }, [points, strokeColor]);
 
   useFrame(({ clock }) => {
     if (lineRef.current) {
