@@ -10,7 +10,7 @@ export default function HomePage() {
 
       {/* Secțiune principală */}
       <section className="grow flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-10 pt-28 sm:pt-36 md:pt-44 pb-16">
-        {/* Titlu mai mic și proporțional */}
+        {/* Titlu mai mic */}
         <h1
           className="font-extrabold mb-5 text-transparent bg-clip-text 
                bg-linear-to-r from-blue-400 via-cyan-300 to-teal-300 drop-shadow-lg

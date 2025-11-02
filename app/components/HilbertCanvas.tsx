@@ -24,7 +24,7 @@ export default function HilbertCanvas({
   const [points, setPoints] = useState<Point[]>([]);
   const [loading, setLoading] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const animationRef = useRef<number | undefined>(undefined); // FIX: Adăugat undefined ca tip și valoare inițială
+  const animationRef = useRef<number | undefined>(undefined); 
 
   useEffect(() => {
     fetchHilbertCurve();
@@ -36,7 +36,7 @@ export default function HilbertCanvas({
     };
   }, [order, size]);
 
-  // Actualizare canvas când se schimbă culorile sau showPoints
+  // Actualizare canvas culori sau pctshow
   useEffect(() => {
     if (points.length > 0) {
       drawCurve(points);
@@ -92,7 +92,7 @@ export default function HilbertCanvas({
       
       ctx.stroke();
 
-      // Draw points if enabled
+      // Draw points 
       if (showPoints) {
         drawPoints(ctx, curvePoints);
       }

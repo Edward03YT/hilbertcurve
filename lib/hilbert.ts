@@ -24,7 +24,7 @@ export class HilbertCurve {
     }
   }
 
-  // Convertește index Hilbert în coordonate x, y
+  // converteste index Hilbert în coordonate x, y
   private hilbertIndexToXY(index: number, n: number): Point {
     const positions: Point[] = [
       { x: 0, y: 0 },
@@ -52,7 +52,7 @@ export class HilbertCurve {
     return { x, y };
   }
 
-  // Rotație pentru generarea curbei
+  // rotatie pentru generarea curbei
   private rotate(n: number, point: Point, rx: number, ry: number): Point {
     if (ry === 0) {
       if (rx === 1) {
@@ -72,7 +72,7 @@ export class HilbertCurve {
     return this.points;
   }
 
-  // Generare recursivă alternativă pentru vizualizare pas cu pas
+  // Generare recursiv alternativa pentru vizualizare pas cu pas
   public static generateRecursive(
     order: number,
     x: number,

@@ -38,8 +38,8 @@ export default function Navbar() {
                                 key={href}
                                 href={href}
                                 className={`relative px-1 transition-colors duration-300 ${active
-                                        ? 'text-blue-400 font-semibold'
-                                        : 'text-gray-300 hover:text-white'
+                                    ? 'text-blue-400 font-semibold'
+                                    : 'text-gray-300 hover:text-white'
                                     }`}
                             >
                                 {label}
@@ -82,8 +82,8 @@ export default function Navbar() {
                                 href={href}
                                 onClick={() => setMenuOpen(false)}
                                 className={`block py-2 px-2 rounded-md transition-colors ${active
-                                        ? 'bg-blue-600 text-white'
-                                        : 'text-gray-300 hover:bg-gray-800 hover:text-blue-400'
+                                    ? 'bg-blue-600 text-white'
+                                    : 'text-gray-300 hover:bg-gray-800 hover:text-blue-400'
                                     }`}
                             >
                                 {label}

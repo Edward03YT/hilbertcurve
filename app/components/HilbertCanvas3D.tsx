@@ -8,7 +8,7 @@ import { HilbertCurve, Point } from '@/lib/hilbert';
 
 interface HilbertCanvas3DProps {
   order: number;
-  size?: number;                // 🔹 same prop as 2D
+  size?: number;            
   strokeColor?: string;
   backgroundColor?: string;
   lineWidth?: number;
@@ -25,7 +25,7 @@ function HilbertLine({
 }) {
   const lineRef = useRef<THREE.Line>(null);
   const visible = useRef(0);
-  const speed = 80; // velocity of segment drawing (segments per second)
+  const speed = 80; 
 
   // Convert Hilbert points to 3D positions
   const positions = useMemo(() => {
@@ -56,7 +56,7 @@ function HilbertLine({
     [strokeColor]
   );
 
-  // 🔹 When animation starts, reset draw range and counter
+  // 🔹 When animation starts
   React.useEffect(() => {
     const line = lineRef.current;
     const geo = line?.geometry as THREE.BufferGeometry | undefined;
@@ -66,7 +66,7 @@ function HilbertLine({
       visible.current = 0;
       geo.setDrawRange(0, 0);
     } else {
-      // if not animating, show whole curve
+ 
       geo.setDrawRange(0, positions.length / 3);
     }
   }, [animate, positions]);
@@ -96,7 +96,7 @@ function HilbertLine({
 
 export default function HilbertCanvas3D({
   order,
-  size = 500,                      // 🔹 default size = 500 (like 2D)
+  size = 500,                     
   strokeColor = '#3B82F6',
   backgroundColor = '#0a0a0a',
   lineWidth = 1,
@@ -114,7 +114,7 @@ export default function HilbertCanvas3D({
     <div className="flex flex-col items-center space-y-4">
       <div
         className="relative border border-gray-700 rounded-lg overflow-hidden shadow-lg"
-        style={{ width: size, height: size }}   // 🔹 Use same width/height as 2D canvas
+        style={{ width: size, height: size }}  //Sa fie la fel sizeu ca la 2D
       >
         <Canvas camera={{ position: [0, 0, 3], fov: 60 }}>
           <color attach="background" args={[backgroundColor]} />

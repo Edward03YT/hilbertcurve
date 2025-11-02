@@ -126,7 +126,7 @@ export default function Controls({
         </div>
       </div>
 
-      {/* Afișează punctele – doar pentru 2D */}
+      {/* afis pct – doar pentru 2D */}
       {!is3D && (
         <label className="flex items-center space-x-2 text-gray-300 cursor-pointer">
           <input
@@ -149,7 +149,7 @@ export default function Controls({
         </div>
       </div>
 
-      {/* Presetări rapide */}
+      {/* preseturi rapide */}
       <div>
         <h3 className="text-sm font-semibold text-gray-300 mb-2">Presetări Rapide</h3>
         <div className="grid grid-cols-2 gap-2">

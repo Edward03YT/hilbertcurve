@@ -7,10 +7,10 @@ export default function AboutPage() {
     <main className="relative flex flex-col min-h-screen bg-linear-to-b from-gray-900 via-gray-950 to-black text-white overflow-hidden">
       <Navbar />
 
-      {/* Conținut principal */}
+
       <section className="grow flex flex-col px-4 sm:px-6 md:px-10 pt-28 sm:pt-36 md:pt-44 pb-16">
         <div className="w-full max-w-5xl mx-auto">
-          {/* Titlu principal */}
+          {/* Titlu Main */}
           <h1
             className="font-extrabold mb-8 text-transparent bg-clip-text 
                        bg-linear-to-r from-blue-400 via-cyan-300 to-teal-300 drop-shadow-lg
@@ -20,7 +20,7 @@ export default function AboutPage() {
             Despre Curba Hilbert și Aplicația Fractali Hilbert
           </h1>
 
-          {/* Paragraf de introducere */}
+          {/* Paragraf de intro */}
           <p className="text-gray-300 text-pretty text-[clamp(0.9rem,1.4vw,1rem)]
                        leading-relaxed mb-10 sm:mb-12 hyphens-auto">
             Această aplicație a fost dezvoltată pentru a oferi o vizualizare interactivă a
@@ -53,7 +53,7 @@ export default function AboutPage() {
             asigurând o experiență fluidă și interactivă în browser.
           </p>
 
-          {/* Proprietăți */}
+          {/* Prop */}
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-300 mb-3">
             Proprietăți Matematice
           </h2>
@@ -66,7 +66,7 @@ export default function AboutPage() {
             <li>Exemplu canonic de formă fractală auto‑similară și compactă.</li>
           </ul>
 
-          {/* Aplicații practice */}
+          {/* App practice */}
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-300 mb-3">
             Aplicații Practice
           </h2>
@@ -79,7 +79,7 @@ export default function AboutPage() {
             <li>Vizualizarea datelor multidimensionale în machine learning.</li>
           </ul>
 
-          {/* Cum funcționează */}
+          {/* Cum fct */}
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-300 mb-3">
             Cum funcționează generarea fractală
           </h2>
